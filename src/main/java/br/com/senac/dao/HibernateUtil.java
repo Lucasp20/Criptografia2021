@@ -15,7 +15,7 @@ public class HibernateUtil {
     static {
         try {
             Configuration cfg = new Configuration();
-            cfg.addAnnotatedClass(usuario.class);
+            cfg.addAnnotatedClass(Usuario.class);
             
             
             cfg.configure("/br/com/senac/dao/hibernate.cfg.xml");

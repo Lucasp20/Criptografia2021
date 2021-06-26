@@ -9,23 +9,30 @@
 <h:head>
 	<title>Criptografia 2021</title>
 </h:head>
-  
+
 <h:body>
+
 	<div class="card">
-		
+
 		<h:form>
-			
 			<h:panelGrid id="login" class="p-field p-grid">
 				<p:outputLabel for="firstname" value="Login:" />
-				<p:inputText id="firstname"	value="#{remoteValidationView.firstname}" required="true" style="width:193px">
+				<p:inputText id="firstname"
+					value="#{remoteValidationView.firstname}" required="true"
+					style="width:230px">
 				</p:inputText>
-				
-					<p:outputLabel for="pwd1" value="Password: " />
-						<p:password id="pwd1" value="#{passwordView.password5}"
-							match="pwd2" label="Password 1" required="true" toggleMask="true" style="width:193px"/>
+
+				<p:outputLabel for="pwd1" value="Password: " />
+				<p:password id="pwd1" value="#{passwordView.password5}" match="pwd2"
+					label="Password 1" required="true" toggleMask="true"
+					style="width:230px" />
 			</h:panelGrid>
 
-			<p:commandButton value="Salvar" icon="pi pi-save" />
+			<p:commandButton value="Entrar" icon="pi pi-save"
+				style="margin-right:12px" />
+
+			<p:commandButton value="Criar Conta" icon="pi pi-user-plus" />
+
 		</h:form>
 	</div>
 
