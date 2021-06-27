@@ -22,16 +22,20 @@
 					style="width:230px">
 				</p:inputText>
 
-				<p:outputLabel for="pwd1" value="Password: " />
-				<p:password id="pwd1" value="#{passwordView.password5}" match="pwd2"
-					label="Password 1" required="true" toggleMask="true"
+				<p:outputLabel for="senha" value="Senha: " />
+				<p:password id="senha"  match="pwd2"
+					required="true" toggleMask="true"
 					style="width:230px" />
 			</h:panelGrid>
 
 			<p:commandButton value="Entrar" icon="pi pi-save"
 				style="margin-right:12px" />
 
-			<p:commandButton value="Criar Conta" icon="pi pi-user-plus" />
+
+			<p:linkButton outcome="usuario" value="Criar Conta" icon="pi pi-user-plus" >
+				<f:param name="usuario" value="5" />
+			</p:linkButton>
+
 
 		</h:form>
 	</div>

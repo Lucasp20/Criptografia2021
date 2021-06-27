@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+	<title>Criptografia</title>
+</h:head>
+<h:body>
+	<div id="left" class="p-col-2">
+		<h:form id="menu">
+			<p:menu style="width:220px">
+				<p:menuitem value="Login" outcome="login" icon="pi pi-user-plus" />
+			</p:menu>
+		</h:form>
+
+		<div id="content" class="p-col-10 left_content">
+			<p:ajaxStatus onstart="PF('statusDialog').show()"
+				onsuccess="PF('statusDialog').hide()" />
+
+			<p:dialog widgetVar="statusDialog" modal="true" draggable="false"
+				closable="false" resizable="false" showHeader="false">
+				<div class="p-text-center">
+					<h:graphicImage library="imagem" name="carregando.gif" />
+				</div>
+			</p:dialog>
+
+			<p:messages id="messages" showSummary="true" closable="true">
+				<p:autoUpdate />
+			</p:messages>
+
+			<ui:insert name="conteudo">
+					<div class="card"> </div>
+				
+			</ui:insert>
+		</div>
+	</div>
+</h:body>
+</html>

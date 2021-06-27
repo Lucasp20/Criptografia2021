@@ -31,7 +31,6 @@ public class UsuarioControle {
 	public void salvar() {
 		sessao = HibernateUtil.abrirSessao();
 		try {
-			usuario.setSenha(UtilGerador.gerarNumero(5));
 			usuarioDao.salvarOuAlterar(usuario, sessao);
 			usuario = null;
 			FacesContext.getCurrentInstance().addMessage(null,
