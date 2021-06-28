@@ -11,13 +11,11 @@
 </h:head>
 
 <h:body>
-
 	<div class="card">
-
 		<h:form>
-			<h:panelGrid id="login" class="p-field p-grid">
-				<p:outputLabel for="firstname" value="Login:" />
-				<p:inputText id="firstname"
+			<h:panelGrid id="painel_login" class="p-field p-grid">
+				<p:outputLabel for="login" value="Login:" />
+				<p:inputText id="login"
 					value="#{remoteValidationView.firstname}" required="true"
 					style="width:230px">
 				</p:inputText>
@@ -27,12 +25,12 @@
 					required="true" toggleMask="true"
 					style="width:230px" />
 			</h:panelGrid>
+						
+			<p:linkButton outcome="usuarioInicio" value="Entrar" icon="pi pi-sign-in" style="margin-right:12px" >
+				<f:param name="usuarioInicio"   />
+			</p:linkButton>
 
-			<p:commandButton value="Entrar" icon="pi pi-save"
-				style="margin-right:12px" />
-
-
-			<p:linkButton outcome="usuario" value="Criar Conta" icon="pi pi-user-plus" >
+			<p:linkButton outcome="usuario" value="Criar Conta" icon="pi pi-user-plus">
 				<f:param name="usuario" value="5" />
 			</p:linkButton>
 

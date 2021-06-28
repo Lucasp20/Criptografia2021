@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="./principal.xhtml" xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+	<ui:define name="conteudo">
+
+		<p:panel id="painel_conteudo" header="Criptografia">
+			<p:tabView id="tab_view" activeIndex="#{usuarioInicioC.aba}">
+
+				<p:ajax event="tabChange" listener="#{usuarioInicioC.onTabChange}" />
+				<p:ajax event="tabClose" listener="#{usuarioInicioC.onTabClose}" />
+
+				<!-- aba para cadastrar e alterar -->
+				<p:tab title="Mensagens">
+					<h:form id="form_novo">
+
+						<p:panelGrid columns="2" layout="flex">
+
+							<p:outputLabel for="login" value="Login:" />
+							<p:inputText id="login" value="#{usuarioC.usuario.login}"
+								style="width:230px" required="true"
+								requiredMessage="Login é Obrigatório!" />
+
+							<p:outputLabel for="mensagem" value="Mensagem" />
+							<p:inputTextarea id="mensagem" style="width:230px" />
+
+							<!-- primeira coluna -->
+							<p:commandButton value="Enviar"
+								actionListener="#{usuarioC.salvar}" update="@all" />
+
+						</p:panelGrid>
+					</h:form>
+				</p:tab>
+
+			</p:tabView>
+		</p:panel>
+	</ui:define>
+</ui:composition>

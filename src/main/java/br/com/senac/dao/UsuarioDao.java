@@ -7,4 +7,6 @@ import br.com.senac.entidade.Usuario;
 public interface UsuarioDao extends BaseDao<Usuario, Long> {
 
 	List<Usuario> pesquisarPorNome(String nome, Session sessao) throws HibernateException;
+	
+	
 }

@@ -28,42 +28,74 @@ public class Usuario implements Serializable {
 	@Column(nullable = false)
 	private String senha;
 	
+	
+	@Column
+	private String chave_publica;
 
-	public Usuario(String nome, String login, String senha) {
+	public Usuario(String nome, String login, String senha, String chave_publica) {
 		super();
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
+		this.chave_publica = chave_publica;
 	}
+
 	
 	public Usuario() {
 		super();
 		
 	}
 	
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
 	public String getNome() {
 		return nome;
 	}
+
 
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+
 	public String getLogin() {
 		return login;
 	}
+
 
 	public void setLogin(String login) {
 		this.login = login;
 	}
 
+
 	public String getSenha() {
 		return senha;
 	}
 
+
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+
+
+	public String getChave_publica() {
+		return chave_publica;
+	}
+
+
+	public void setChave_publica(String chave_publica) {
+		this.chave_publica = chave_publica;
+	}
+
 
 	@Override
 	public int hashCode() {
