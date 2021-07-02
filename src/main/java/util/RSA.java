@@ -1,6 +1,4 @@
-
 package util;
-
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,22 +10,16 @@ import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import javax.crypto.Cipher;
-  
-  
+ 
 public class RSA {
   
   public static final String ALGORITHM = "RSA"; 
-  /**
-   * path to private key on file system.
-   */
-  public static final String PATH_PRIVATE_KEY = "C:/keys/private_lucas.key";
-  /**
-   * path to public key on file system.
-   */
-  public static final String PATH_PUBLIC_KEY = "C:/keys/public_lucas.key";
-  /**
-   * Generated the key pair with 1024 bytes, producing two files private.key e public.key
-   */
+	/* Chave privada */
+  public static final String PATH_PRIVATE_KEY = "C:/chaves/private_lucas.key";
+ 
+	/* Chave publica */
+  public static final String PATH_PUBLIC_KEY = "C:/chaves/public_lucas.key";
+ 
   public static void generateKey() {
     try {
         final KeyPairGenerator keyGen = KeyPairGenerator.getInstance(ALGORITHM);
@@ -64,7 +56,6 @@ public class RSA {
     }
   
   }
-  
   /**
    * Verifies if the keys pair already existis.
    */
@@ -79,7 +70,6 @@ public class RSA {
      
     return false;
   }
-  
   /**
    * encrypt content using the public key
    */
@@ -96,7 +86,6 @@ public class RSA {
      
     return cipherText;
   }
-  
   /**
    * decrypt the content using the private key
    */
@@ -114,8 +103,6 @@ public class RSA {
   
     return dectyptedText;
   }
-  
-
   public static void main(String[] args) { 
     try {
       if (!thereIsKeyPaarConfigured()) {
@@ -143,6 +130,5 @@ public class RSA {
     } catch (Exception e) {
       e.printStackTrace();
     }
-
   }
 }

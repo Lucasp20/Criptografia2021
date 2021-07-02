@@ -16,26 +16,41 @@
 				<p:ajax event="tabClose" listener="#{usuarioInicioC.onTabClose}" />
 
 				<!-- aba para cadastrar e alterar -->
-				<p:tab title="Mensagens">
-					<h:form id="form_novo">
+				<p:tab title="Enviar Mensagens">
+					<h:form id="enviar_msg">
 
 						<p:panelGrid columns="2" layout="flex">
-
-							<p:outputLabel for="login" value="Login:" />
+							<p:outputLabel for="login" value="Login:" style="font-weight: bold" />
 							<p:inputText id="login" value="#{usuarioC.usuario.login}"
 								style="width:230px" required="true"
 								requiredMessage="Login é Obrigatório!" />
 
-							<p:outputLabel for="mensagem" value="Mensagem" />
+							<p:outputLabel for="mensagem" value="Mensagem" style="font-weight: bold"  />
 							<p:inputTextarea id="mensagem" style="width:230px" />
 
 							<!-- primeira coluna -->
 							<p:commandButton value="Enviar"
 								actionListener="#{usuarioC.salvar}" update="@all" />
-
 						</p:panelGrid>
 					</h:form>
 				</p:tab>
+
+				<p:tab title="Mensagens Recebidas">
+					<h:form id="revelar_msg">
+						<p:panelGrid columns="2" layout="flex">
+
+							<p:outputLabel id="arquivo" value="Escolha um arquivo de mensagem" style="font-weight: bold" />
+							<input type="file" name="messagem" />
+							
+							<p:outputLabel id="privada" value="Escolha uma chave privada " style="font-weight: bold" />
+							<input type="file" name="private_key" />
+
+							<!-- primeira coluna -->
+							<p:commandButton value="Enviar" update="@all" />
+						</p:panelGrid>
+					</h:form>
+				</p:tab>
+
 
 			</p:tabView>
 		</p:panel>

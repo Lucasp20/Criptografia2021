@@ -1,7 +1,5 @@
 package br.com.senac.controle;
 
-
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -11,13 +9,12 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import org.hibernate.*;
-import org.jboss.logging.MDC;
+
 import org.primefaces.event.TabChangeEvent;
 import org.primefaces.event.TabCloseEvent;
 
 import br.com.senac.dao.*;
 import br.com.senac.entidade.Usuario;
-import util.Hash;
 
 
 @ManagedBean(name = "usuarioC")
@@ -65,9 +62,7 @@ public class UsuarioControle {
 	        md.update(message.getBytes());
 	        byte[] digest = md.digest();
 	        return digest;
-	    }
-	    
-	    
+	    }	    
 	    public static String hexaToString(byte[] digest ){
 	        // Convert digest to a string
 	        StringBuffer hexString = new StringBuffer();
@@ -85,7 +80,6 @@ public class UsuarioControle {
 		usuario = modelUsuarios.getRowData();
 		aba = 1;
 	}
-	
 	public void onTabChange(TabChangeEvent event) {
 		if(event.getTab().getTitle().equals("Novo"));
 		

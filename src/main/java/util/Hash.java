@@ -37,7 +37,6 @@ public class Hash {
         System.out.println(hash + " "+String.valueOf(hash.length()));
         
     }
-    
      public static byte[] sha1(String message) throws NoSuchAlgorithmException{   
         MessageDigest md = MessageDigest.getInstance("SHA-1"); 
         md.update(message.getBytes());
