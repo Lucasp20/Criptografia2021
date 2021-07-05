@@ -44,7 +44,7 @@ public class UsuarioControle {
 			modelUsuarios = null;
 		} catch (HibernateException e) {
 			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Informação", "Erro ao salvar usuário"));
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao salvar usuário" , null));
 		} finally {
 			sessao.close();
 		}
@@ -106,7 +106,5 @@ public class UsuarioControle {
 	public int getAba() {
 		return aba;
 	}
-
-	
 	
 }

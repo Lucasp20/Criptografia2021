@@ -11,11 +11,16 @@ public class UsuarioDaoImpl extends BaseDaoImpl<Usuario, Long> implements Usuari
 	public Usuario pesquisarPorId(Long id, Session sessao) throws HibernateException {
 		return (Usuario) sessao.get(Usuario.class, id);
 	}
-
 	@Override
 	public List<Usuario> pesquisarPorNome(String nome, Session sessao) throws HibernateException {
 		Query consulta = sessao.createQuery("from Usuario where nome like :nome");
 		consulta.setParameter("nome", "%" + nome + "%");
 		return consulta.list();
 	}
+	@Override
+	public List<Usuario> pesquisarPorLogin(String login, Session sessao) throws HibernateException {
+		Query consulta = sessao.createQuery("from Usuario where where login :login");
+		consulta.setParameter("login", login);
+		return consulta.list();
+	}	
 }
