@@ -9,10 +9,7 @@
 	<ui:define name="conteudo">
 
 		<p:panel id="painel_conteudo" header="Usuário">
-			<p:tabView id="tab_view" activeIndex="#{usuarioC.aba}">
-
-				<p:ajax event="tabChange" listener="#{usuarioC.onTabChange}" />
-				<p:ajax event="tabClose" listener="#{usuarioC.onTabClose}" />
+			<p:outputPanel id="tab_view" activeIndex="#{usuarioC.aba}">
 					
 				<!-- aba para cadastrar e alterar -->
 				<p:tab title="Novo">
@@ -39,7 +36,7 @@
 					</h:form>
 				</p:tab>
 
-			</p:tabView>
+			</p:outputPanel>
 		</p:panel>
 	</ui:define>
 </ui:composition>

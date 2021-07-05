@@ -29,7 +29,7 @@ public class RSA {
         File privateKeyFile = new File(PATH_PRIVATE_KEY);
         File publickeyFile = new File(PATH_PUBLIC_KEY);
 
-        // create the directory to store the keys files when it does not exists
+        
         if (privateKeyFile.getParentFile() != null) {
           privateKeyFile.getParentFile().mkdirs();
         }

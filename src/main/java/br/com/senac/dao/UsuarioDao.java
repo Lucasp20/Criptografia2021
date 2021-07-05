@@ -10,4 +10,5 @@ public interface UsuarioDao extends BaseDao<Usuario, Long> {
 	
 	List<Usuario> pesquisarPorLogin(String login, Session sessao) throws HibernateException;
 	
+	
 }

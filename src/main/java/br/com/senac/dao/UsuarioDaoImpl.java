@@ -2,6 +2,9 @@ package br.com.senac.dao;
 
 import java.io.Serializable;
 import java.util.List;
+
+import javax.persistence.NoResultException;
+
 import org.hibernate.*;
 import br.com.senac.entidade.Usuario;
 
@@ -22,5 +25,6 @@ public class UsuarioDaoImpl extends BaseDaoImpl<Usuario, Long> implements Usuari
 		Query consulta = sessao.createQuery("from Usuario where where login :login");
 		consulta.setParameter("login", login);
 		return consulta.list();
-	}	
+	}
+
 }

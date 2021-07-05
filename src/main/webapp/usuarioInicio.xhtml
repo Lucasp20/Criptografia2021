@@ -10,8 +10,7 @@
 		<p:panel id="painel_conteudo"  header="Criptografia">
 			<p:tabView id="tab_view" activeIndex="#{usuarioInicioC.aba}">
 
-				<p:ajax event="tabChange" listener="#{usuarioInicioC.onTabChange}" />
-				<p:ajax event="tabClose" listener="#{usuarioInicioC.onTabClose}" />
+				
 
 				<!-- aba enviar mensagens -->
 				<p:tab title="Enviar Mensagens">
@@ -27,8 +26,7 @@
 							<p:inputTextarea id="mensagem" style="width:230px" />
 
 							<!-- primeira coluna -->
-							<p:commandButton value="Enviar"
-								actionListener="#{usuarioInicioC.salvar}" update="@all" />
+							<p:commandButton value="Enviar" />
 						</p:panelGrid>
 					</h:form>
 				</p:tab>
@@ -44,7 +42,7 @@
 							<input type="file" name="private_key" />
 
 							<!-- primeira coluna -->
-							<p:commandButton value="Enviar" update="@all" />
+							<p:commandButton value="Enviar" />
 						</p:panelGrid>
 					</h:form>
 				</p:tab>
