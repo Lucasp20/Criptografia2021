@@ -26,9 +26,9 @@ public class DataSourceMySQL {
 		String passwd = "1107";
                 try {
                     if (con == null || con.isClosed()) {
-                        //Class.forName("com.mysql.jdbc.Driver");
+                       
                         Class.forName("com.mysql.cj.jdbc.Driver");                      
-                        url +="?autoReconnect=true&useSSL=false&serverTimezone=UTC";//for mysql 8
+                        url +="?autoReconnect=true&useSSL=false&serverTimezone=UTC";
                         con = DriverManager.getConnection(url, user, passwd);
                         System.out.println("Database: Connected in database");
                     }

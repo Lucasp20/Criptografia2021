@@ -56,9 +56,7 @@ public class RSA {
     }
   
   }
-  /**
-   * Verifies if the keys pair already existis.
-   */
+  
   public static boolean thereIsKeyPaarConfigured() {
   
     File privateKey = new File(PATH_PRIVATE_KEY);
@@ -70,9 +68,7 @@ public class RSA {
      
     return false;
   }
-  /**
-   * encrypt content using the public key
-   */
+  
   public static byte[] encrypt(byte[] content, PublicKey key) {
     byte[] cipherText = null;
      
@@ -86,9 +82,7 @@ public class RSA {
      
     return cipherText;
   }
-  /**
-   * decrypt the content using the private key
-   */
+  
   public static byte[] decrypt(byte[] content, PrivateKey key) {
     byte[] dectyptedText = null;
      

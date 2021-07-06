@@ -31,10 +31,10 @@ public class EnviaMsgUsuario extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet sendMessageToUser</title>");            
+            out.println("<title>Servlet EnviaMsgUsuario</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet sendMessageToUser at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EnviaMsgUsuario at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
