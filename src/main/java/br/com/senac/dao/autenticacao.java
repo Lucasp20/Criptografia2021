@@ -66,9 +66,7 @@ public class autenticacao extends HttpServlet {
         } catch (SQLException ex) {
             Logger.getLogger(autenticacao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
-
     @Override
     public String getServletInfo() {
         return "Short description";
