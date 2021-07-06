@@ -10,10 +10,9 @@
 		<p:panel id="painel_conteudo"  header="Criptografia">
 			<p:tabView id="tab_view" activeIndex="#{usuarioInicioC.aba}">
 
-
 				<!-- aba enviar mensagens -->
 				<p:tab title="Enviar Mensagens">
-					<h:form >
+					<h:form method="post" action="UsuarioInicioControle">
 
 						<p:panelGrid columns="2" layout="flex">
 							<p:outputLabel for="login" value="Login:" style="font-weight: bold" />

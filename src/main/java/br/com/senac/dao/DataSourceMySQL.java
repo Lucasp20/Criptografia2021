@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.senac.controle;
+package br.com.senac.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -21,9 +21,9 @@ public class DataSourceMySQL {
     }
 
 	private void ConectaBD() {
-		String url = "jdbc:mysql://localhost:3306/secret_messages";
+		String url = "jdbc:mysql://localhost:3306/criptografia";
 		String user = "root";
-		String passwd = "root";
+		String passwd = "1107";
                 try {
                     if (con == null || con.isClosed()) {
                         //Class.forName("com.mysql.jdbc.Driver");

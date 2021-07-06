@@ -1,4 +1,4 @@
-package br.com.senac.controle;
+package br.com.senac.dao;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<head>
+<title>Criptografia 2021</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="resources/css/estilo.css" />
+<link rel="stylesheet" href="resources/css/form.css" />
+
+</head>
+<body>
+	<section id="corpo-full">
+		<article id="noticia-principal">
+
+			<form id="fContato" method="post" action="EnviaMsgUsuario">
+
+				<fieldset id="usuario">
+					<legend>Login</legend>
+
+					<p>
+						<label class="login" for="cLogin">Login</label> <input type="text" name="tNome"
+							id="cLogin" size="20" maxlength="30"
+							placeholder="Login do usuário" />
+					</p>
+
+					<p>
+						<label class="login" for="cSenha">Senha</label> <input type="password"
+							name="tSenha" id="cSenha" size="20" maxlength="10"
+							placeholder="8 Digitos" />
+					</p>
+					
+					<input type="image" name="tEnviar"
+						src="resources/imagem/botao-enviar.png" />
+					
+				</fieldset>
+			</form>
+
+		</article>
+	</section>
+</body>
+</html>
