@@ -5,50 +5,47 @@ import java.security.NoSuchAlgorithmException;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.model.DataModel;
-import org.hibernate.*;
+import javax.faces.view.ViewScoped;
 
-import org.primefaces.event.TabChangeEvent;
-import org.primefaces.event.TabCloseEvent;
+import org.hibernate.Session;
 
-import br.com.senac.dao.*;
+import br.com.senac.dao.HibernateUtil;
+import br.com.senac.dao.UsuarioDao.UsuarioDAO;
 import br.com.senac.entidade.Usuario;
 
-@ManagedBean(name = "usuarioC")
+@ManagedBean(name ="loginC")
 @ViewScoped
-public class UsuarioControle {
+public class LoginControle {
 
-	private Usuario usuario;
-	private UsuarioDao usuarioDao;
 	private Session sessao;
-	private DataModel<Usuario> modelUsuarios;
 	private int aba;
+	private UsuarioDAO usuarioDAO = new UsuarioDAO();
+	private Usuario usuario = new Usuario();
 
-	public UsuarioControle() {
-		usuarioDao = new UsuarioDaoImpl();
-	}
-
-	public void salvar() throws NoSuchAlgorithmException {
+	  public String envia() {
 		sessao = HibernateUtil.abrirSessao();
-		String hash = new String(this.getHash(usuario));
+	    usuario = usuarioDAO.getUsuario(usuario.getLogin(), usuario.getSenha());
+	    if (usuario == null) {
+	      usuario = new Usuario();
+	      FacesContext.getCurrentInstance().addMessage(
+	         null,
+	         new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuário não encontrado!",
+	           "Erro no Login!"));
+	      return null;
+	    } else {
+	          return "/main";
+	    }
 
-		try {
-			usuario.setSenha(hash);
-			usuarioDao.salvarOuAlterar(usuario, sessao);
-			usuario = null;
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_INFO, "Usuário Salvo com Sucesso", null));
-			modelUsuarios = null;
-		} catch (HibernateException e) {
-			FacesContext.getCurrentInstance().addMessage(null,
-					new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro ao salvar usuário", null));
-		} finally {
-			sessao.close();
-		}
+
+	  }
+	public UsuarioDAO getUsuarioDAO() {
+		return usuarioDAO;
 	}
-	
+
+	public void setUsuarioDAO(UsuarioDAO usuarioDAO) {
+		this.usuarioDAO = usuarioDAO;
+	}
 
 	private String getHash(Usuario usuario) throws NoSuchAlgorithmException {
 		String senha = new String(usuario.getSenha());
@@ -76,21 +73,6 @@ public class UsuarioControle {
 		}
 		return hexString.toString();
 	}
-
-	public void prepararAlterar() {
-		usuario = modelUsuarios.getRowData();
-		aba = 1;
-	}
-
-	public void onTabChange(TabChangeEvent event) {
-		if (event.getTab().getTitle().equals("Novo"))
-			;
-
-	}
-
-	public void onTabClose(TabCloseEvent event) {
-	}
-
 	public Usuario getUsuario() {
 		if (usuario == null) {
 			usuario = new Usuario();
@@ -102,9 +84,7 @@ public class UsuarioControle {
 		this.usuario = profissao;
 	}
 
-	public DataModel<Usuario> getModelUsuarios() {
-		return modelUsuarios;
-	}
+
 
 	public int getAba() {
 		return aba;

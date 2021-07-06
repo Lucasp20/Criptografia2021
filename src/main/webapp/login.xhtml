@@ -16,16 +16,20 @@
 			<h:panelGrid id="painel_login" class="p-field p-grid">
 				<p:outputLabel for="login" value="Login:" />
 				<p:inputText id="login"
-					value="#{remoteValidationView.firstname}" required="true"
+					value="#{loginC.usuario.login}" required="true"
 					style="width:230px">
 				</p:inputText>
 
 				<p:outputLabel for="senha" value="Senha: " />
-				<p:password id="senha"  match="pwd2"
+				<p:password id="senha"  value="#{loginC.usuario.senha}"
 					required="true" toggleMask="true"
 					style="width:230px" />
 			</h:panelGrid>
-						
+			
+			
+		<!-- 	<p:commandButton value="Entrar" action="#{loginC.envia}" icon="pi pi-sign-in" style="margin-right:10px" /> -->
+			
+			
 			<p:linkButton outcome="usuarioInicio" value="Entrar" icon="pi pi-sign-in" style="margin-right:12px" >
 				<f:param name="usuarioInicio"   />
 			</p:linkButton>

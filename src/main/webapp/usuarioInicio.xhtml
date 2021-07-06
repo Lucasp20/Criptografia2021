@@ -10,23 +10,21 @@
 		<p:panel id="painel_conteudo"  header="Criptografia">
 			<p:tabView id="tab_view" activeIndex="#{usuarioInicioC.aba}">
 
-				
 
 				<!-- aba enviar mensagens -->
 				<p:tab title="Enviar Mensagens">
-					<h:form method="post" id="enviar_msg" action="UsuarioInicioControle">
+					<h:form >
 
 						<p:panelGrid columns="2" layout="flex">
 							<p:outputLabel for="login" value="Login:" style="font-weight: bold" />
 							<p:inputText id="login" value="#{usuarioC.usuario.login}"
-								style="width:230px" required="true"
-								requiredMessage="Login é Obrigatório!" />
+								style="width:230px" />
 
 							<p:outputLabel for="mensagem" value="Mensagem" style="font-weight: bold"  />
 							<p:inputTextarea id="mensagem" style="width:230px" />
 
 							<!-- primeira coluna -->
-							<p:commandButton value="Enviar" />
+							<p:commandButton value="Enviar" method="post" action="#{usuarioInicioC}"/>
 						</p:panelGrid>
 					</h:form>
 				</p:tab>
