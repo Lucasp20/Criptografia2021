@@ -98,6 +98,7 @@ public class EnviaMsgUsuario extends HttpServlet {
                     ps = con.prepareStatement(sql);
                     ps.setLong(1, enviada);
                     ps.setLong(2, recebida);
+                    
                    
                     ps.setBytes(3, messageCyphered);
                     boolean result = ps.execute();
