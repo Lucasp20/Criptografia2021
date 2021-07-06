@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.senac.dao;
 
 import java.io.IOException;
@@ -18,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class authentication extends HttpServlet {
+public class autenticacao extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -51,14 +46,14 @@ public class authentication extends HttpServlet {
             String senha=request.getParameter("senha");
             long id=-1;
             DataSourceMySQL ds = new DataSourceMySQL();
-            String sql = "select id from usuario where login=? and senha=sha2(?,512)";
+            String sql = "select login from usuario where login=? and senha=sha2(?,512)";
             Connection con = ds.getCon();
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, login);
             ps.setString(2, senha);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                id=rs.getInt("id");
+                id=rs.getInt("login");
             }       
             if(id==-1){
                 response.getOutputStream().print("Error: Credentials not valid.");
@@ -69,7 +64,7 @@ public class authentication extends HttpServlet {
                 request.getSession().setAttribute("login", login);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(authentication.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(autenticacao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
